@@ -20,16 +20,27 @@ public class ExceptionsDemo {
         System.out.println("test");
     }
 
-    public static void readFile1() {
-        readFile2();
+    public static void readFile1()
+        try {
+            readFile2();
+        } catch (Throwable t) {
+            System.out.println(t);
+        }
     }
 
     public static void readFile2() {
         readFile3();
     }
 
+
     public static void readFile3() {
-        readFile4();
+
+        try {
+            readFile4();
+        } catch (Throwable t) {
+            System.out.println("OOPS");
+            throw new RuntimeException(e);
+        }
     }
 
     public static void readFile4() {
@@ -45,4 +56,22 @@ public class ExceptionsDemo {
         FileReader fileReader = new FileReader(f);
         f.setReadable(true);
     }
+
+    public static void readStaticException(int age ) {
+        if (age < 18) {
+            throw new
+                    ArithmeticException("Access denied-You must be at least 18 years old.");
+        } else {
+            System.out.println("Access granted-You are old enought!");
+        }
+
+    }
+    public static void readStaticException1() {
+        try {
+            readStaticException();
+        } catch (ArithmeticException a) {
+            System.out.println(a);
+        }
+    }
+
 }
