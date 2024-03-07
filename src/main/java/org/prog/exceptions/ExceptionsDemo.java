@@ -20,7 +20,7 @@ public class ExceptionsDemo {
         System.out.println("test");
     }
 
-    public static void readFile1()
+    public static void readFile1(){
         try {
             readFile2();
         } catch (Throwable t) {
@@ -39,7 +39,7 @@ public class ExceptionsDemo {
             readFile4();
         } catch (Throwable t) {
             System.out.println("OOPS");
-            throw new RuntimeException(e);
+            throw new RuntimeException(t);
         }
     }
 
@@ -68,10 +68,11 @@ public class ExceptionsDemo {
     }
     public static void readStaticException1() {
         try {
-            readStaticException();
+            readStaticException(1);
         } catch (ArithmeticException a) {
             System.out.println(a);
         }
     }
 
 }
+
